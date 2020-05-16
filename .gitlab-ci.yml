@@ -3,9 +3,17 @@ image : microsoft/dotnet:latest
 stages:
   - build
   - test
-  - release
+  - deploy
 
 build:
   stage: build
   script:
     - dotnet build
+    
+deploy_mysolution:
+  stage: deploy
+  script:
+    - PKGPATH=$(find /builds/bigyantest/testkdotnetcore02/TestKSdkCore/bin/Debug/*.nupkg)
+    - dotnet nuget push $PKGPATH -k $NUGET_PUSH_KEY -s https://www.nuget.org/
+  only:
+    - master
