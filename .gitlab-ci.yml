@@ -10,6 +10,11 @@ build:
   script:
     - dotnet build
     
+test:
+  stage: test
+  script:
+    - dotnet test
+    
 deploy_mysolution:
   stage: deploy
   image:
