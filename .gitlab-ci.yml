@@ -7,7 +7,7 @@ stages:
   - deploy
 
 before_script:
-    - RUN dotnet restore TestKSdkCore.sln
+    - dotnet restore TestKSdkCore.sln
 
 variables:
     test: "KountRisCoreTest"
