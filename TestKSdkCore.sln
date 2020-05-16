@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.645
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestKSdkCore", "TestKSdkCore\TestKSdkCore.csproj", "{6F7EBADF-1447-46BA-AD24-B308B4EAC61A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestKSdkCore", "TestKSdkCore\TestKSdkCore.csproj", "{6F7EBADF-1447-46BA-AD24-B308B4EAC61A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KountRisCoreTest", "KountRisCoreTest\KountRisCoreTest.csproj", "{90A91A27-61E4-4E74-9BD8-C0802CBC1F0C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{6F7EBADF-1447-46BA-AD24-B308B4EAC61A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6F7EBADF-1447-46BA-AD24-B308B4EAC61A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6F7EBADF-1447-46BA-AD24-B308B4EAC61A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{90A91A27-61E4-4E74-9BD8-C0802CBC1F0C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{90A91A27-61E4-4E74-9BD8-C0802CBC1F0C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{90A91A27-61E4-4E74-9BD8-C0802CBC1F0C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{90A91A27-61E4-4E74-9BD8-C0802CBC1F0C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
