@@ -12,7 +12,7 @@ RUN dotnet restore "TestKSdkCore/TestKSdkCore.csproj"
 COPY . .
 
 # Publish
-WORKDIR /source/src
+WORKDIR /source/TestKSdkCore
 RUN dotnet publish -c Release -o /publish
 
 # Runtime
