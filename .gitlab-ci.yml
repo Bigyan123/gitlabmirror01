@@ -1,0 +1,30 @@
+image: mcr.microsoft.com/dotnet/core/sdk:2.2.301
+#image: crunchtime/dotnetcore-nuget-msbuild-docker
+
+stages:
+  - build
+  - test
+  - deploy
+
+before_script:
+    - nuget restore TestKSdkCore.sln
+
+variables:
+    test: "KountRisCoreTest"
+
+build:
+    stage: build
+    script:
+        - "dotnet pack  TestKSdkCore/TestKSdkCore.csproj"
+
+deploy_mysolution:
+  stage: deploy
+  image:
+    name: crunchtime/dotnetcore-nuget-msbuild-docker
+  script:
+    - dotnet msbuild TestKSdkCore.sln /t:Clean,ReBuild /p:Configuration=Release;Platform="Any CPU"
+    - dotnet pack "TestKSdkCore/TestKSdkCore.csproj" /p:Configuration=Release;Platform="Any CPU"
+    - PKGPATH=$(find /builds/bigyantest/TestKSdkCore/TestKSdkCore/bin/Release/*.nupkg)
+    - dotnet nuget push $PKGPATH -k $NUGET_PUSH_KEY -s https://www.nuget.org/
+  only:
+    - master
