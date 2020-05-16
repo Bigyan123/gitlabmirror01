@@ -12,8 +12,8 @@ RUN dotnet restore "TestKSdkCore/TestKSdkCore.csproj"
 COPY . .
 
 # Publish
-WORKDIR /source/src
-RUN dotnet publish -c Release -o /publish
+#WORKDIR /source/src
+#RUN dotnet publish -c Release -o /publish
 
 # Runtime
 FROM microsoft/dotnet:2.2-aspnetcore-runtime
