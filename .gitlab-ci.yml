@@ -1,24 +1,11 @@
-image: docker:stable
-#image: mcr.microsoft.com/dotnet/core/sdk:2.2.301
-#image: crunchtime/dotnetcore-nuget-msbuild-docker
+image : microsoft/dotnet:latest
 
-services:
-  - docker:dind
-
-before_script:
-  - docker info
-
+stages:
+  - build
+  - test
+  - release
 
 build:
-  only:
-    - master
-  before_script:
-    - docker login registry.gitlab.com -u "bigyantest" -p "@Test@123"
-  script:
-    - docker build -t registry.gitlab.com/bigyantest/testkdotnetcore02 .
-    - docker push ${CI_REGISTRY}/${CI_PROJECT_PATH}:latest
-  after_script:
-    - docker logout ${CI_REGISTRY}
   stage: build
-  tags:
-    - docker
+  script:
+    - dotnet build
