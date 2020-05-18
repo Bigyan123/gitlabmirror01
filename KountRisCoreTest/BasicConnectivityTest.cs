@@ -39,43 +39,43 @@ namespace KountRisCoreTest
         /// One cart item, one rule triggered,
         /// approval status of REVIEW is returned
         /// </summary>
-        // [Fact]
-        //public void PreRisQOneItemRequiredFieldsOneRuleReview()
-        //{
-        //    Inquiry inquiry = TestHelper.CreateInquiry(KHASH_PTOK, out _sid, out _orderNum);
+        [Fact]
+        public void PreRisQOneItemRequiredFieldsOneRuleReview()
+        {
+            Inquiry inquiry = TestHelper.CreateInquiry(KHASH_PTOK, out _sid, out _orderNum);
 
-        //    // set CART with one item
-        //    var cart = new ArrayList();
-        //    cart.Add(new CartItem("SPORTING_GOODS", "SG999999", "3000 CANDLEPOWER PLASMA FLASHLIGHT", 2, 68990));
-        //    inquiry.SetCart(cart);
+            // set CART with one item
+            var cart = new ArrayList();
+            cart.Add(new CartItem("SPORTING_GOODS", "SG999999", "3000 CANDLEPOWER PLASMA FLASHLIGHT", 2, 68990));
+            inquiry.SetCart(cart);
 
-        //    Response response = inquiry.GetResponse();
+            Response response = inquiry.GetResponse();
 
-        //    var errors = response.GetErrors();
-        //    Assert.True(errors.Count == 0, String.Join(Environment.NewLine, errors, "There are errors in response!"));
+            var errors = response.GetErrors();
+            Assert.True(errors.Count == 0, String.Join(Environment.NewLine, errors, "There are errors in response!"));
 
-        //    var auto = response.GetAuto();
-        //    Assert.True("R".Equals(auto), "Inquiry failed!  Approval Status is not equal to R");
+            var auto = response.GetAuto();
+            Assert.True("R".Equals(auto), "Inquiry failed!  Approval Status is not equal to R");
 
-        //    var warnings = response.GetWarnings();
-        //    Assert.True(warnings.Count == 0, String.Join(Environment.NewLine, warnings, "There are warnings in response!"));
+            var warnings = response.GetWarnings();
+            Assert.True(warnings.Count == 0, String.Join(Environment.NewLine, warnings, "There are warnings in response!"));
 
-        //    var sid = response.GetSessionId();
-        //    Assert.True(_sid.Equals(sid), "Inquiry failed! Wrong session ID");
+            var sid = response.GetSessionId();
+            Assert.True(_sid.Equals(sid), "Inquiry failed! Wrong session ID");
 
-        //    var orderNum = response.GetOrderNumber();
-        //    Assert.True(_orderNum.Equals(orderNum), "Inquiry failed! Wrong order number.");
+            var orderNum = response.GetOrderNumber();
+            Assert.True(_orderNum.Equals(orderNum), "Inquiry failed! Wrong order number.");
 
-        //    var rulesTrigg = response.GetRulesTriggered();
-        //    Assert.True(rulesTrigg.Count == 1, "Inquiry failed! RULES TRIGGERED is not 1");
-        //}
+            var rulesTrigg = response.GetRulesTriggered();
+            Assert.True(rulesTrigg.Count == 1, "Inquiry failed! RULES TRIGGERED is not 1");
+        }
 
         /// <summary>
         /// <b>TEST 2</b>
         /// Mode Q call with multiple items in cart, two rules triggered, an optional fields included,
         /// approval status of DECLINED is returned
         /// </summary>
-         [Fact]
+        [Fact]
         public void PreRisQMultiCartItemsTwoOptionalFieldsTwoRulesDecline()
         {
             Inquiry inquiry = TestHelper.CreateInquiry(KHASH_PTOK, out _sid, out _orderNum);
@@ -150,38 +150,38 @@ namespace KountRisCoreTest
         /// TEST 4
         /// Invalid value for a required field is sent, hard error returned
         /// </summary>
-        // [Fact]
-        //public void PreRisQHardErrorExpected()
-        //{
-        //    Inquiry inquiry = TestHelper.CreateInquiry(KHASH_PTOK, out _sid, out _orderNum);
+        [Fact]
+        public void PreRisQHardErrorExpected()
+        {
+            Inquiry inquiry = TestHelper.CreateInquiry(KHASH_PTOK, out _sid, out _orderNum);
 
-        //    inquiry.SetParameter("PTOK", Khash.HashPaymentToken("BADPTOK"));
-        //    inquiry.SetGender('M');
+            inquiry.SetParameter("PTOK", Khash.HashPaymentToken("BADPTOK"));
+            inquiry.SetGender('M');
 
-        //    // set CART with one item
-        //    var cart = new ArrayList();
-        //    cart.Add(new CartItem("cart item 0 type", "cart item 0", "cart item 0 description", 10, 1000));
-        //    inquiry.SetCart(cart);
+            // set CART with one item
+            var cart = new ArrayList();
+            cart.Add(new CartItem("cart item 0 type", "cart item 0", "cart item 0 description", 10, 1000));
+            inquiry.SetCart(cart);
 
-        //    Response response = inquiry.GetResponse();
+            Response response = inquiry.GetResponse();
 
-        //    var mode = response.GetMode();
-        //    Assert.True("E".Equals(mode), $"Update failed! Wrong response mode {mode}.");
+            var mode = response.GetMode();
+            Assert.True("E".Equals(mode), $"Update failed! Wrong response mode {mode}.");
 
-        //    // optional getter
-        //    var errors = response.GetErrors();
-        //    Assert.True(errors.Count == 1, "Wrong responce expected error_num: 332, ERROR_COUNT=1");
+            // optional getter
+            var errors = response.GetErrors();
+            Assert.True(errors.Count == 1, "Wrong responce expected error_num: 332, ERROR_COUNT=1");
 
-        //    var err0 = errors[0];
-        //    string errCode = err0.Substring(0, 3);
-        //    Assert.True(err0.Contains("332 BAD_CARD Cause: [PTOK invalid format], Field: [PTOK], Value: [hidden]"), $"Wrong error value: {err0}, expected 332");
-        //}
+            var err0 = errors[0];
+            string errCode = err0.Substring(0, 3);
+            Assert.True(err0.Contains("332 BAD_CARD Cause: [PTOK invalid format], Field: [PTOK], Value: [hidden]"), $"Wrong error value: {err0}, expected 332");
+        }
 
         /// <summary>
         /// TEST 5
         /// Warning reported but status of APPROVED returned
         /// </summary>
-         [Fact]
+        [Fact]
         public void PreRisQWarningApproved()
         {
             Inquiry inquiry = TestHelper.CreateInquiry(KHASH_PTOK, out _sid, out _orderNum);
@@ -336,7 +336,7 @@ namespace KountRisCoreTest
         /// "KC_EVENT_1_CODE": "orderTotalDecline",
         /// "KC_EVENT_1_DECISION": "D"
         /// </summary>
-        // [Fact]
+        //[Fact]
         //public void PreRisJOneKountCentralRuleDecline()
         //{
         //    Inquiry inquiry = TestHelper.CreateInquiry(KHASH_PTOK, out _sid, out _orderNum);
@@ -390,7 +390,7 @@ namespace KountRisCoreTest
         /// Mode U call submits updated values, but return values do not include the re-evalued transaction results.
         /// Default values mode Q transaction, capture TRAN, SESS, ORDR values, use those to submit a mode U
         /// </summary>
-         [Fact]
+        [Fact]
         public void PreModeUAfterModeQ()
         {
             Inquiry inquiry = TestHelper.CreateInquiry(KHASH_PTOK, out _sid, out _orderNum);
@@ -487,7 +487,7 @@ namespace KountRisCoreTest
             // create update without check in config
             Update update = new Update(false);
             update.SetMode(UpdateTypes.ModeX);
-            update.SetVersion("0695");
+            update.SetVersion("0700");
 
             update.SetMerchantId(TestHelper.TEST_MERCHANT_ID);
             update.SetApiKey(TestHelper.TEST_API_KEY);

@@ -24,8 +24,12 @@ namespace KountRisCoreTest
 
     public class PredictiveResponseTest
     {
-        private const string API_KEY = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiI5OTk2NjciLCJhdWQiOiJLb3VudC4xIiwiaWF0IjoxNDk0NTM1OTE2LCJzY3AiOnsia2EiOm51bGwsImtjIjpudWxsLCJhcGkiOmZhbHNlLCJyaXMiOnRydWV9fQ.KK3zG4dMIhTIaE5SeCbej1OAFhZifyBswMPyYFAVRrM";
-        private const int MERCHANT_ID = 999667;
+        //private const string API_KEY = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiI5OTk2NjciLCJhdWQiOiJLb3VudC4xIiwiaWF0IjoxNDk0NTM1OTE2LCJzY3AiOnsia2EiOm51bGwsImtjIjpudWxsLCJhcGkiOmZhbHNlLCJyaXMiOnRydWV9fQ.KK3zG4dMIhTIaE5SeCbej1OAFhZifyBswMPyYFAVRrM";
+        //private const int MERCHANT_ID = 999667;
+
+
+        public const string API_KEY = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiI5OTk2NjYiLCJhdWQiOiJLb3VudC4xIiwiaWF0IjoxNDk0NTM0Nzk5LCJzY3AiOnsia2EiOm51bGwsImtjIjpudWxsLCJhcGkiOmZhbHNlLCJyaXMiOnRydWV9fQ.eMmumYFpIF-d1up_mfxA5_VXBI41NSrNVe9CyhBUGck";
+        public const int MERCHANT_ID = 999666;
 
         /// <summary>
         /// Email of Merchant
@@ -117,30 +121,30 @@ namespace KountRisCoreTest
         /// Produces RIS output, AUTO=R
         /// Email input will need to be, EMAL=predictive @kount.com
         /// </summary>
-        //[Fact]
-        //public void PredictiveResponseScore42AutoR()
-        //{
-        //    Inquiry inquiry = CreateInquiry();
+        [Fact]
+        public void PredictiveResponseScore42AutoR()
+        {
+            Inquiry inquiry = CreateInquiry();
 
-        //    inquiry.SetUserDefinedField("~K!_SCOR", "42");
-        //    inquiry.SetUserDefinedField("~K!_AUTO", "R");
+            inquiry.SetUserDefinedField("~K!_SCOR", "42");
+            inquiry.SetUserDefinedField("~K!_AUTO", "R");
 
-        //    // set CART with one item
-        //    var cart = new ArrayList();
-        //    cart.Add(new CartItem("cart item 0 type", "cart item 0", "cart item 0 description", 10, 1000));
-        //    inquiry.SetCart(cart);
+            // set CART with one item
+            var cart = new ArrayList();
+            cart.Add(new CartItem("cart item 0 type", "cart item 0", "cart item 0 description", 10, 1000));
+            inquiry.SetCart(cart);
 
-        //    Response response = inquiry.GetResponse();
-        //    // optional getter
-        //    var errors = response.GetErrors();
-        //    Assert.True(errors.Count == 0, String.Join(Environment.NewLine, errors, "There are errors in response!"));
+            Response response = inquiry.GetResponse();
+            // optional getter
+            var errors = response.GetErrors();
+            Assert.True(errors.Count == 0, String.Join(Environment.NewLine, errors, "There are errors in response!"));
 
-        //    var score = response.GetScore();
-        //    Assert.True("42".Equals(score), "Inquiry failed!   Expected Score=42.");
+            var score = response.GetScore();
+            Assert.True("42".Equals(score), "Inquiry failed!   Expected Score=42.");
 
-        //    var auto = response.GetAuto();
-        //    Assert.True("R".Equals(auto), "Inquiry failed!  Expected Decision=R");
-        //}
+            var auto = response.GetAuto();
+            Assert.True("R".Equals(auto), "Inquiry failed!  Expected Decision=R");
+        }
 
         /// <summary>
         /// TEST 2
@@ -153,34 +157,34 @@ namespace KountRisCoreTest
         /// UDF[~K!_GEOX]=NG
         /// Email input will need to be, EMAL=predictive @kount.com
         /// </summary>
-        //[Fact]
-        //public void PredictiveResponseScore42AutoD()
-        //{
-        //    Inquiry inquiry = CreateInquiry();
+        [Fact]
+        public void PredictiveResponseScore42AutoD()
+        {
+            Inquiry inquiry = CreateInquiry();
 
-        //    inquiry.SetUserDefinedField("~K!_SCOR", "42");
-        //    inquiry.SetUserDefinedField("~K!_AUTO", "D");
-        //    inquiry.SetUserDefinedField("~K!_GEOX", "NG");
+            inquiry.SetUserDefinedField("~K!_SCOR", "42");
+            inquiry.SetUserDefinedField("~K!_AUTO", "D");
+            inquiry.SetUserDefinedField("~K!_GEOX", "NG");
 
-        //    // set CART with one item
-        //    var cart = new ArrayList();
-        //    cart.Add(new CartItem("cart item 0 type", "cart item 0", "cart item 0 description", 10, 1000));
-        //    inquiry.SetCart(cart);
+            // set CART with one item
+            var cart = new ArrayList();
+            cart.Add(new CartItem("cart item 0 type", "cart item 0", "cart item 0 description", 10, 1000));
+            inquiry.SetCart(cart);
 
-        //    Response response = inquiry.GetResponse();
-        //    // optional getter
-        //    var errors = response.GetErrors();
-        //    Assert.True(errors.Count == 0, String.Join(Environment.NewLine, errors, "There are errors in response!"));
+            Response response = inquiry.GetResponse();
+            // optional getter
+            var errors = response.GetErrors();
+            Assert.True(errors.Count == 0, String.Join(Environment.NewLine, errors, "There are errors in response!"));
 
-        //    var score = response.GetScore();
-        //    Assert.True("42".Equals(score), "Inquiry failed!   Expected Score=42.");
+            var score = response.GetScore();
+            Assert.True("42".Equals(score), "Inquiry failed!   Expected Score=42.");
 
-        //    var auto = response.GetAuto();
-        //    Assert.True("D".Equals(auto), "Inquiry failed!  Expected Decision=D");
+            var auto = response.GetAuto();
+            Assert.True("D".Equals(auto), "Inquiry failed!  Expected Decision=D");
 
-        //    var geox = response.GetGeox();
-        //    Assert.True("NG".Equals(geox), "Inquiry failed!  Expected GEOX=NG");
-        //}
+            var geox = response.GetGeox();
+            Assert.True("NG".Equals(geox), "Inquiry failed!  Expected GEOX=NG");
+        }
 
         /// <summary>
         /// TEST 3
@@ -190,31 +194,31 @@ namespace KountRisCoreTest
         /// ERRO=601
         /// Email input will need to be, EMAL=predictive @kount.com
         /// </summary>
-        //[Fact]
-        //public void PredictiveResponseScore18ModeE()
-        //{
-        //    Inquiry inquiry = CreateInquiry();
+        [Fact]
+        public void PredictiveResponseScore18ModeE()
+        {
+            Inquiry inquiry = CreateInquiry();
 
-        //    inquiry.SetUserDefinedField("~K!_SCOR", "18");
-        //    inquiry.SetUserDefinedField("~K!_AUTO", "E");
-        //    inquiry.SetUserDefinedField("~K!_ERRO", "601");
+            inquiry.SetUserDefinedField("~K!_SCOR", "18");
+            inquiry.SetUserDefinedField("~K!_AUTO", "E");
+            inquiry.SetUserDefinedField("~K!_ERRO", "601");
 
-        //    // set CART with one item
-        //    var cart = new ArrayList();
-        //    cart.Add(new CartItem("cart item 0 type", "cart item 0", "cart item 0 description", 10, 1000));
-        //    inquiry.SetCart(cart);
+            // set CART with one item
+            var cart = new ArrayList();
+            cart.Add(new CartItem("cart item 0 type", "cart item 0", "cart item 0 description", 10, 1000));
+            inquiry.SetCart(cart);
 
-        //    Response response = inquiry.GetResponse();
-        //    // optional getter
-        //    var errors = response.GetErrors();
-        //    Assert.True(errors.Count == 1, String.Join(Environment.NewLine, errors, "Errors are not equals to 1!"));
+            Response response = inquiry.GetResponse();
+            // optional getter
+            var errors = response.GetErrors();
+            Assert.True(errors.Count == 1, String.Join(Environment.NewLine, errors, "Errors are not equals to 1!"));
 
-        //    var mode = response.GetMode();
-        //    Assert.True("E".Equals(mode), "Inquiry failed!  Expected Mode=E");
+            var mode = response.GetMode();
+            Assert.True("E".Equals(mode), "Inquiry failed!  Expected Mode=E");
 
-        //    var err0 = errors[0];
-        //    string errCode = err0.Substring(0, 3);
-        //    Assert.True("601".Equals(errCode), "Inquiry failed!  Expected ERRO=601");
-        //}
+            var err0 = errors[0];
+            string errCode = err0.Substring(0, 3);
+            Assert.True("601".Equals(errCode), "Inquiry failed!  Expected ERRO=601");
+        }
     }
 }

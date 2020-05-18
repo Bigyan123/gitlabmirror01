@@ -43,7 +43,7 @@ namespace KountRisCoreTest
          [Fact]
         public void FromAppSettings_assigns_Url()
         {
-            Assert.Equal("https://risk.test.kount.net", SUT.URL);
+            Assert.Equal("https://risk.beta.kount.net", SUT.URL);
         }
 
          [Fact]
@@ -58,10 +58,10 @@ namespace KountRisCoreTest
             Assert.Equal("11111111111111111", SUT.PrivateKeyPassword);
         }
 
-        // [Fact]
-        //public void FromAppSettings_assigns_ConfigKey()
-        //{
-        //    Assert.Null(SUT.ConfigKey);
-        //}
+        [Fact]
+        public void FromAppSettings_assigns_ConfigKey()
+        {
+            Assert.Equal("", SUT.ConfigKey);
+        }
     }
 }

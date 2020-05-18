@@ -5,7 +5,7 @@
 	 <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 	<PackageId>TestKSdkCore</PackageId>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
-    <Version>1.0.1</Version>
+    <Version>1.0.2</Version>
 	<Authors>Bigyan</Authors>
   <Company>Bigyan test</Company>
   </PropertyGroup>
