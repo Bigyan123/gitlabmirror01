@@ -5,10 +5,10 @@ stages:
   - test
   - deploy
 
-build:
-  stage: build
-  script:
-    - dotnet build
+#build:
+#  stage: build
+#  script:
+#    - dotnet build
     
 test:
   stage: test
