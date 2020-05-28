@@ -16,11 +16,13 @@ namespace KountRisCoreTest
             SUT = Configuration.FromAppSettings();
         }
 
-         [Fact]
-        public void FromAppSettings_assigns_Connect_Timeout()
-        {
-            Assert.Equal("10000", SUT.ConnectTimeout);
-        }
+        // [Fact]
+        //public void FromAppSettings_assigns_Connect_Timeout()
+        //{
+        //    Assert.Equal("10000", SUT.ConnectTimeout);
+        //}
+
+
 
          [Fact]
         public void FromAppSettings_assigns_MerchantId()
