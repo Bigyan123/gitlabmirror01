@@ -91,8 +91,8 @@ namespace Kount.Ris
 
             XmlDocument log4netConfig = new XmlDocument();
 
-            log4netConfig.Load(System.IO.File.OpenRead("D:/KountRISSdks/KountRisDotNetCoreSdks/GitLabCiCd/testkdotnetcore02/TestKSdkCore/Kount/SimpleLogger/log4net.config"));
-
+            
+            log4netConfig.Load(System.IO.File.OpenRead("log4net.config"));
             var repo = log4net.LogManager.CreateRepository(
            Assembly.GetEntryAssembly(), typeof(log4net.Repository.Hierarchy.Hierarchy));
 
