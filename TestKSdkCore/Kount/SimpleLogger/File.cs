@@ -8,7 +8,9 @@ namespace Kount.SimpleLogger
     using System;
     using System.Configuration;
     using System.IO;
+    using System.Reflection;
     using System.Text;
+    using System.Xml;
     using Microsoft.Extensions.Configuration;
 
     /// <summary>
@@ -19,6 +21,7 @@ namespace Kount.SimpleLogger
     /// </summary>
     public class File
     {
+
         /// <summary>
         /// Debug log level
         /// </summary>
@@ -73,12 +76,24 @@ namespace Kount.SimpleLogger
         /// </summary>
         public string SdkElapsed { get; private set; }
 
+        public static readonly log4net.ILog log = log4net.LogManager.GetLogger(typeof(File));
         /// <summary>
         /// Constructor for file logger.
         /// </summary>
         /// <param name="name">Name of the logger</param>
         public File(string name)
         {
+
+           // XmlDocument log4netConfig = new XmlDocument();
+           // log4netConfig.Load(System.IO.File.OpenRead("log4net.config"));
+
+           // var repo = log4net.LogManager.CreateRepository(
+           //Assembly.GetEntryAssembly(), typeof(log4net.Repository.Hierarchy.Hierarchy));
+
+           // log4net.Config.XmlConfigurator.Configure(repo, log4netConfig["log4net"]);
+
+           // log.Info("Application - Main is invoked");
+
             this.logLevels[LogFatal] = 5;
             this.logLevels[LogError] = 4;
             this.logLevels[LogWarn] = 3;
@@ -89,23 +104,27 @@ namespace Kount.SimpleLogger
 
             var builder = new ConfigurationBuilder()
                 .SetBasePath(Directory.GetCurrentDirectory())
-                .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true);
+                .AddJsonFile("appsettings.json", optional: false, reloadOnChange: false);
 
             IConfigurationRoot configuration = builder.Build();
 
             this.SdkElapsed = configuration.GetConnectionString("LOG.SIMPLE.ELAPSED"); // "1000"; //ConfigurationManager.AppSettings["LOG.SIMPLE.ELAPSED"]; Bigyan
             this.configLogLevel = configuration.GetConnectionString("LOG.SIMPLE.LEVEL");  //"Warning"; //ConfigurationManager.AppSettings["LOG.SIMPLE.LEVEL"]; Bigyan
-            string logFile = configuration.GetConnectionString("LOG.SIMPLE.FILE"); 
-            string logPath = configuration.GetConnectionString("LOG.SIMPLE.PATH");  
-            this.logFilePath = logPath + "\\" + logFile;
+            string logFile = configuration.GetConnectionString("LOG.SIMPLE.FILE");
+            string logPath = configuration.GetConnectionString("LOG.SIMPLE.PATH");
+            string LogP = AppDomain.CurrentDomain.BaseDirectory;
+            //this.logFilePath = logPath + "\\" + logFile;
+            this.logFilePath = LogP + "\\" + logFile;
 
-            if (!Directory.Exists(logPath))
+            if (!Directory.Exists(logPath))//changes from logPath
             {
                 Directory.CreateDirectory(logPath);
             }
 
-            this.logFilePath = new Uri(Path.Combine(logPath, logFile)).LocalPath;
+            this.logFilePath = new Uri(Path.Combine(logPath, logFile)).LocalPath;//changes from logPath
         }
+
+
 
         /// <summary>
         /// Log a debug level message.
