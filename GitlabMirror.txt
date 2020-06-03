@@ -10,4 +10,4 @@ Test 9
 Test commit 1 for Sqash
 Test commit 2
 Test commit 3
-Test 9
+
