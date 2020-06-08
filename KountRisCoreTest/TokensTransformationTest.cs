@@ -1,9 +1,9 @@
-﻿namespace KountRisTest
+﻿
+namespace KountRisCoreTest
 {
-    using Kount.Ris;
     using Xunit;
+    using Kount.Ris;
 
-    
     public class TokensTransformationTest
     {
         /// <summary>
@@ -14,6 +14,7 @@
         /// <summary>
         ///
         /// </summary>
+        /// 
         [Fact]
         public void TestMaskingCorrectUsage()
         {

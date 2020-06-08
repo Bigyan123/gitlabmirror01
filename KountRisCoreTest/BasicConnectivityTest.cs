@@ -39,7 +39,7 @@ namespace KountRisCoreTest
         /// One cart item, one rule triggered,
         /// approval status of REVIEW is returned
         /// </summary>
-        [Fact]
+         [Fact]
         public void PreRisQOneItemRequiredFieldsOneRuleReview()
         {
             Inquiry inquiry = TestHelper.CreateInquiry(KHASH_PTOK, out _sid, out _orderNum);
@@ -75,7 +75,7 @@ namespace KountRisCoreTest
         /// Mode Q call with multiple items in cart, two rules triggered, an optional fields included,
         /// approval status of DECLINED is returned
         /// </summary>
-        [Fact]
+         [Fact]
         public void PreRisQMultiCartItemsTwoOptionalFieldsTwoRulesDecline()
         {
             Inquiry inquiry = TestHelper.CreateInquiry(KHASH_PTOK, out _sid, out _orderNum);
@@ -150,7 +150,7 @@ namespace KountRisCoreTest
         /// TEST 4
         /// Invalid value for a required field is sent, hard error returned
         /// </summary>
-        [Fact]
+         [Fact]
         public void PreRisQHardErrorExpected()
         {
             Inquiry inquiry = TestHelper.CreateInquiry(KHASH_PTOK, out _sid, out _orderNum);
@@ -181,7 +181,7 @@ namespace KountRisCoreTest
         /// TEST 5
         /// Warning reported but status of APPROVED returned
         /// </summary>
-        [Fact]
+         [Fact]
         public void PreRisQWarningApproved()
         {
             Inquiry inquiry = TestHelper.CreateInquiry(KHASH_PTOK, out _sid, out _orderNum);
@@ -336,7 +336,7 @@ namespace KountRisCoreTest
         /// "KC_EVENT_1_CODE": "orderTotalDecline",
         /// "KC_EVENT_1_DECISION": "D"
         /// </summary>
-        //[Fact]
+        // [Fact]
         //public void PreRisJOneKountCentralRuleDecline()
         //{
         //    Inquiry inquiry = TestHelper.CreateInquiry(KHASH_PTOK, out _sid, out _orderNum);
@@ -390,7 +390,7 @@ namespace KountRisCoreTest
         /// Mode U call submits updated values, but return values do not include the re-evalued transaction results.
         /// Default values mode Q transaction, capture TRAN, SESS, ORDR values, use those to submit a mode U
         /// </summary>
-        [Fact]
+         [Fact]
         public void PreModeUAfterModeQ()
         {
             Inquiry inquiry = TestHelper.CreateInquiry(KHASH_PTOK, out _sid, out _orderNum);
@@ -487,7 +487,7 @@ namespace KountRisCoreTest
             // create update without check in config
             Update update = new Update(false);
             update.SetMode(UpdateTypes.ModeX);
-            update.SetVersion("0700");
+            update.SetVersion("0695");
 
             update.SetMerchantId(TestHelper.TEST_MERCHANT_ID);
             update.SetApiKey(TestHelper.TEST_API_KEY);
