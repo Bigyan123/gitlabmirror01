@@ -16,13 +16,11 @@ namespace KountRisCoreTest
             SUT = Configuration.FromAppSettings();
         }
 
-        // [Fact]
-        //public void FromAppSettings_assigns_Connect_Timeout()
-        //{
-        //    Assert.Equal("10000", SUT.ConnectTimeout);
-        //}
-
-
+         [Fact]
+        public void FromAppSettings_assigns_Connect_Timeout()
+        {
+            Assert.Equal("10000", SUT.ConnectTimeout);
+        }
 
          [Fact]
         public void FromAppSettings_assigns_MerchantId()
@@ -60,10 +58,10 @@ namespace KountRisCoreTest
             Assert.Equal("11111111111111111", SUT.PrivateKeyPassword);
         }
 
-        [Fact]
+         [Fact]
         public void FromAppSettings_assigns_ConfigKey()
         {
-            Assert.Equal("", SUT.ConfigKey);
+            Assert.NotNull(SUT.ConfigKey);
         }
     }
 }
